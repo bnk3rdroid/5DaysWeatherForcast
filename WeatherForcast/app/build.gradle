@@ -81,3 +81,11 @@ repositories {
         url "http://repository.jetbrains.com/all"
     }
 }
+afterEvaluate {
+    android.sourceSets.all { sourceSet ->
+        if (!sourceSet.name.startsWith("test"))
+        {
+            sourceSet.kotlin.setSrcDirs([])
+        }
+    }
+}
