@@ -3,12 +3,12 @@ package bnk3r.droid.weatherforecast.features.splashScreen.ui
 import android.annotation.TargetApi
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
 import bnk3r.droid.weatherforecast.R
 import bnk3r.droid.weatherforecast.application.App
+import bnk3r.droid.weatherforecast.base.BaseActivity
 import bnk3r.droid.weatherforecast.features.splashScreen.di.DaggerSplashScreenComponent
 import bnk3r.droid.weatherforecast.features.splashScreen.di.SplashScreenComponent
 import bnk3r.droid.weatherforecast.features.splashScreen.di.SplashScreenModule
@@ -17,10 +17,10 @@ import butterknife.ButterKnife
 import javax.inject.Inject
 
 class SplashScreenView
-: AppCompatActivity(), SplashScreenContract.View, SplashScreenContract.DaggerComponent {
+: BaseActivity(), SplashScreenContract.View {
 
     /*
-    * AppCompatActivity
+    * BaseActivity
     * */
 
     @BindView(R.id.activity_splash_screen)
@@ -29,12 +29,24 @@ class SplashScreenView
     @BindView(R.id.tv)
     lateinit var tv: TextView
 
+    @Inject
+    lateinit var presenter: SplashScreenContract.Presenter
+
+    lateinit var component: SplashScreenComponent
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         ButterKnife.bind(this)
-        splashScreenMVPComponent()
         presenter.retrieveVersionName()
+    }
+
+    override fun onInject() {
+        component = DaggerSplashScreenComponent.builder()
+                .appComponent((application as App).component)
+                .splashScreenModule(SplashScreenModule(this))
+                .build()
+        component.inject(this)
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -56,23 +68,6 @@ class SplashScreenView
 
     override fun showVersionName(versionName: String) {
         tv.text = versionName
-    }
-
-    /*
-    * DaggerComponent
-    * */
-
-    @Inject
-    lateinit var presenter: SplashScreenContract.Presenter
-
-    lateinit var component: SplashScreenComponent
-
-    override fun splashScreenMVPComponent() {
-        component = DaggerSplashScreenComponent.builder()
-                .appComponent((application as App).component)
-                .splashScreenModule(SplashScreenModule(this))
-                .build()
-        component.inject(this)
     }
 
 }

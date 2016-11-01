@@ -1,7 +1,7 @@
 package bnk3r.droid.weatherforecast.base
 
 import android.app.Application
-import bnk3r.droid.weatherforecast.application.AppContract
+import bnk3r.droid.weatherforecast.base.contract.AppContract
 
 /**
  * Base class for every application

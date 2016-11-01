@@ -8,10 +8,8 @@ interface SplashScreenContract {
     interface View {
         fun showVersionName(versionName: String)
     }
+
     interface Presenter {
         fun retrieveVersionName()
-    }
-    interface DaggerComponent {
-        fun splashScreenMVPComponent()
     }
 }

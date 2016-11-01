@@ -4,6 +4,7 @@ import bnk3r.droid.weatherforecast.application.di.AppComponent
 import bnk3r.droid.weatherforecast.application.di.AppModule
 import bnk3r.droid.weatherforecast.application.di.DaggerAppComponent
 import bnk3r.droid.weatherforecast.base.BaseApp
+import bnk3r.droid.weatherforecast.base.contract.AppContract
 
 /**
  * Application class
