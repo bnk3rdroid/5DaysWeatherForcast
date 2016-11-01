@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">WeatherForcast</string>
+    <string name="app_name">WeatherForecast</string>
+    <string name="splash_screen_logo">Application\'s logo</string>
+    <string name="splash_screen_title">Weather Forecast</string>
 </resources>
