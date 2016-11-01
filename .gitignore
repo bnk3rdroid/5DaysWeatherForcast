@@ -78,3 +78,6 @@ ultimate/*.versionsBackup
 .DS_Store
 /build
 mirror/
+
+#Personal
+instruction.txt
