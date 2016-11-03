@@ -2,6 +2,7 @@ package bnk3r.droid.weatherforecast.features.mainScreen.di
 
 import bnk3r.droid.weatherforecast.features.mainScreen.ui.MainScreenPresenter
 import bnk3r.droid.weatherforecast.features.mainScreen.ui.MainScreenContract
+import com.android.volley.RequestQueue
 import dagger.Module
 import dagger.Provides
 
@@ -13,8 +14,8 @@ import dagger.Provides
 class MainScreenModule(private val view: MainScreenContract.View) {
 
     @Provides @MainScreenScope
-    fun providesPresenter() : MainScreenContract.Presenter {
-        return MainScreenPresenter(view)
+    fun providesPresenter(requestQueue: RequestQueue) : MainScreenContract.Presenter {
+        return MainScreenPresenter(view, requestQueue)
     }
 
 }

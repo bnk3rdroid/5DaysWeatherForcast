@@ -5,11 +5,14 @@ import bnk3r.droid.weatherforecast.features.splashScreen.ui.SplashScreenView
 import dagger.Component
 
 /**
- * Dagger2 component: SplashScreen
+ * Dagger2 appComponent: SplashScreen
  * Created by YomanHD on 01/11/2016.
  */
 @SplashScreenScope
-@Component(dependencies = arrayOf(AppComponent::class), modules = arrayOf(SplashScreenModule::class))
+@Component(
+        dependencies = arrayOf(AppComponent::class),
+        modules = arrayOf(SplashScreenModule::class)
+)
 interface SplashScreenComponent {
     fun inject(activity: SplashScreenView)
 }

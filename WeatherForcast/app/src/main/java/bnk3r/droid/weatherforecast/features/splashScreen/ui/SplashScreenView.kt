@@ -47,7 +47,7 @@ class SplashScreenView
 
     override fun onInject() {
         component = DaggerSplashScreenComponent.builder()
-                .appComponent((application as App).component)
+                .appComponent((application as App).appComponent)
                 .splashScreenModule(SplashScreenModule(this))
                 .build()
         component.inject(this)

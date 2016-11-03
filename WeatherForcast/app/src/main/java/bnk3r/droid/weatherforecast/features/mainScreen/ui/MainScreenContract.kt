@@ -11,6 +11,6 @@ interface MainScreenContract {
     }
 
     interface Presenter {
-
+        fun findWeather()
     }
 }
