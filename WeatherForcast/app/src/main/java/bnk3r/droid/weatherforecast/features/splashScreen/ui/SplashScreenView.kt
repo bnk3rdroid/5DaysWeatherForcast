@@ -1,14 +1,17 @@
 package bnk3r.droid.weatherforecast.features.splashScreen.ui
 
 import android.annotation.TargetApi
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.RelativeLayout
 import android.widget.TextView
 import bnk3r.droid.weatherforecast.R
 import bnk3r.droid.weatherforecast.application.App
 import bnk3r.droid.weatherforecast.base.BaseActivity
+import bnk3r.droid.weatherforecast.features.mainScreen.ui.MainScreenView
 import bnk3r.droid.weatherforecast.features.splashScreen.di.DaggerSplashScreenComponent
 import bnk3r.droid.weatherforecast.features.splashScreen.di.SplashScreenComponent
 import bnk3r.droid.weatherforecast.features.splashScreen.di.SplashScreenModule
@@ -39,6 +42,7 @@ class SplashScreenView
         setContentView(R.layout.activity_splash_screen)
         ButterKnife.bind(this)
         presenter.retrieveVersionName()
+        finishSplashScreen()
     }
 
     override fun onInject() {
@@ -60,6 +64,19 @@ class SplashScreenView
                     or View.SYSTEM_UI_FLAG_FULLSCREEN
                     or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
         }
+    }
+
+    private fun finishSplashScreen() {
+        Thread(Runnable {
+            kotlin.run {
+                try {
+                    Thread.sleep(2000)
+                } catch (e: InterruptedException) {
+                    //we don't do anything, we simply go faster to the main screen
+                }
+                startActivity(Intent(this, MainScreenView::class.java))
+            }
+        }).start()
     }
 
     /*
