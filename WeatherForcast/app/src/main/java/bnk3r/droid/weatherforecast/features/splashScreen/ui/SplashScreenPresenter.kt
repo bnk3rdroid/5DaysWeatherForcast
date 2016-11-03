@@ -1,6 +1,6 @@
 package bnk3r.droid.weatherforecast.features.splashScreen.ui
 
-import bnk3r.droid.weatherforecast.application.App
+import android.app.Application
 import javax.inject.Inject
 
 /**
@@ -8,7 +8,8 @@ import javax.inject.Inject
  * Created by YomanHD on 01/11/2016.
  */
 class SplashScreenPresenter
-@Inject constructor(private var app: App, private var view: SplashScreenContract.View)
+@Inject
+constructor(private var application: Application, private var view: SplashScreenContract.View)
 : SplashScreenContract.Presenter {
 
     /*
@@ -16,7 +17,7 @@ class SplashScreenPresenter
     * */
 
     override fun retrieveVersionName() {
-        view.showVersionName(app.packageManager.getPackageInfo(app.packageName, 0).versionName)
+        view.showVersionName(application.packageManager.getPackageInfo(application.packageName, 0).versionName)
     }
 
 }

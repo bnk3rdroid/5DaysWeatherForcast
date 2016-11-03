@@ -1,6 +1,6 @@
 package bnk3r.droid.weatherforecast.application.di
 
-import bnk3r.droid.weatherforecast.application.App
+import android.app.Application
 import dagger.Component
 import javax.inject.Singleton
 
@@ -11,5 +11,5 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = arrayOf(AppModule::class))
 interface AppComponent {
-    fun app() : App
+    fun application() : Application
 }
