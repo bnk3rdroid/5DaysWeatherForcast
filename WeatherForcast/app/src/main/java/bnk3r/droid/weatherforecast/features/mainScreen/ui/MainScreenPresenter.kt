@@ -1,6 +1,8 @@
 package bnk3r.droid.weatherforecast.features.mainScreen.ui
 
+import bnk3r.droid.weatherforecast.features.mainScreen.model.WeatherDay
 import com.android.volley.RequestQueue
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -13,6 +15,17 @@ constructor(private var view: MainScreenContract.View, private var requestQueue:
 : MainScreenContract.Presenter {
 
     override fun findWeather() {
+        view.showWeather(fakeData())
+    }
+
+    private fun fakeData(): List<WeatherDay> {
+        val list = ArrayList<WeatherDay>()
+        var i: Int = 0
+        while (i < 10) {
+            list.add(WeatherDay())
+            ++i
+        }
+        return list
     }
 
 }
