@@ -15,6 +15,7 @@ interface MainScreenContract {
         fun hideWeather()
         fun showError(errorMessage: String)
         fun hideError()
+        fun showCityName(city: String)
     }
 
     interface Presenter {

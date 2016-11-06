@@ -3,9 +3,8 @@ package bnk3r.droid.weatherforecast.features.mainScreen.ui
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.transition.Visibility
+import android.text.Html
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import bnk3r.droid.weatherforecast.R
@@ -20,6 +19,19 @@ import butterknife.ButterKnife
 import javax.inject.Inject
 
 class MainScreenView : BaseActivity(), MainScreenContract.View {
+
+    fun init() {
+        val title = "Seek weather for..."
+        val color = "#d26c22"
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            supportActionBar!!.title = Html.fromHtml("<font color='$color'>$title</font>", Html.FROM_HTML_MODE_LEGACY)
+        } else {
+            supportActionBar!!.title = Html.fromHtml("<font color='$color'>$title</font>")
+        }
+        weatherRV.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        weatherRV.adapter = adapter
+        presenter.findWeather()
+    }
 
     /*
     * BaseActivity
@@ -37,13 +49,16 @@ class MainScreenView : BaseActivity(), MainScreenContract.View {
     @Inject
     lateinit var presenter: MainScreenContract.Presenter
 
+    @Inject
+    lateinit var adapter: MainScreenWeatherAdapter
+
     lateinit var mainComponent: MainScreenComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_screen_view)
         ButterKnife.bind(this)
-        presenter.findWeather()
+        init()
     }
 
     override fun onInject() {
@@ -67,8 +82,7 @@ class MainScreenView : BaseActivity(), MainScreenContract.View {
     }
 
     override fun showWeather(weatherDays: List<WeatherDay>) {
-        weatherRV.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        weatherRV.adapter = MainScreenWeatherAdapter(weatherDays)
+        (weatherRV.adapter as MainScreenWeatherAdapter).update(weatherDays)
         weatherRV.visibility = View.VISIBLE
     }
 
@@ -86,4 +100,14 @@ class MainScreenView : BaseActivity(), MainScreenContract.View {
     override fun hideError() {
         errorMessageTV.visibility = View.GONE
     }
+
+    override fun showCityName(city: String) {
+        val color = "#d26c22"
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            supportActionBar!!.title = Html.fromHtml("<font color='$color'>$city</font>", Html.FROM_HTML_MODE_LEGACY)
+        } else {
+            supportActionBar!!.title = Html.fromHtml("<font color='$color'>$city</font>")
+        }
+    }
+
 }

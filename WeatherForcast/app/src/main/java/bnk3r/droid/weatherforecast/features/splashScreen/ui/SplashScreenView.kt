@@ -70,7 +70,7 @@ class SplashScreenView
         Thread(Runnable {
             kotlin.run {
                 try {
-                    Thread.sleep(2000)
+                    Thread.sleep(1500)
                 } catch (e: InterruptedException) {
                     //we don't do anything, we simply go faster to the main screen
                 }

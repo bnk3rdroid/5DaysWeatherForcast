@@ -4,6 +4,7 @@
     android:id="@+id/activity_main_screen_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="bnk3r.droid.weatherforecast.features.mainScreen.ui.MainScreenView">
 
     <android.support.v7.widget.RecyclerView
@@ -29,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/activity_vertical_margin"
-        android:gravity="center" />
+        android:gravity="center"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -4,6 +4,7 @@
     android:id="@+id/activity_splash_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:padding="@dimen/activity_vertical_margin"
     tools:context="bnk3r.droid.weatherforecast.features.splashScreen.ui.SplashScreenView">
 
@@ -24,11 +25,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
             android:text="@string/splash_screen_title"
             android:textColor="@android:color/white"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:padding="@dimen/activity_horizontal_margin"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <TextView

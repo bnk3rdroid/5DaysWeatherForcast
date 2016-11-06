@@ -42,41 +42,54 @@ android {
 kapt {
     generateStubs = true
 }
+
+def JUNIT = "4.12"
+def ESPRESSO = "2.2.2"
+def SUPPORT = "25.0.0"
+def DAGGER = "2.4"
+def ANNOTATION = "10.0-b28"
+def BUTTERKNIFE = "8.4.0"
+def VOLLEY = "1.0.0"
+def GSON = "2.2.4"
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     //Tests
-    testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    testCompile "junit:junit:$JUNIT"
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$ESPRESSO", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
     //Android SDK
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile "com.android.support:appcompat-v7:$SUPPORT"
+    compile "com.android.support:recyclerview-v7:$SUPPORT"
 
     //Kotlin
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN"
 
     //Dagger
-    compile 'com.google.dagger:dagger:2.4'
-    provided 'org.glassfish:javax.annotation:10.0-b28'
-    kapt 'com.google.dagger:dagger-compiler:2.4'
+    compile "com.google.dagger:dagger:$DAGGER"
+    provided "org.glassfish:javax.annotation:$ANNOTATION"
+    kapt "com.google.dagger:dagger-compiler:$DAGGER"
 
     //ButterKnife
-    compile 'com.jakewharton:butterknife:8.4.0'
-    kapt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile "com.jakewharton:butterknife:$BUTTERKNIFE"
+    kapt "com.jakewharton:butterknife-compiler:$BUTTERKNIFE"
 
     //Volley
-    compile 'com.android.volley:volley:1.0.0'
+    compile "com.android.volley:volley:$VOLLEY"
+
+    //Gson
+    compile "com.google.code.gson:gson:$GSON"
 }
 buildscript {
-    ext.kotlin_version = '1.0.4'
+    ext.KOTLIN = '1.0.4'
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN"
     }
 }
 repositories {
