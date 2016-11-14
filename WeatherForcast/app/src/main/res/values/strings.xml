@@ -3,4 +3,14 @@
     <string name="splash_screen_logo">Application\'s logo</string>
     <string name="splash_screen_title">Weather Forecast</string>
     <string name="iwd_icon_description">weather\'s icon</string>
+    <string name="weather_detail_bg">background</string>
+    <string name="weather_detail_icon">Icon</string>
+    <string name="temperature">TEMPERATURE</string>
+    <string name="vent">VENT</string>
+    <string name="humidity">HUMIDITE</string>
+    <string name="cloudiness">COUVERTURE NUAGEUSE</string>
+    <string name="sea_pressure">PRESSION ATMMOSPHERIQUE (Mer)</string>
+    <string name="ground_pressure">PRESSION ATMMOSPHERIQUE (Terre)</string>
+    <string name="reload">RELOAD</string>
+    <string name="exit_double_tap">Appuyez fois pour quitter</string>
 </resources>

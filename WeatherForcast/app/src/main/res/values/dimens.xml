@@ -1,4 +1,7 @@
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="weather_card_height">150dp</dimen>
+    <dimen name="weather_detail_header_height">200dp</dimen>
+    <dimen name="weather_detail_icon_size">70dp</dimen>
 </resources>

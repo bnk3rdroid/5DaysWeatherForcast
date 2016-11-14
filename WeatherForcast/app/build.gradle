@@ -6,10 +6,10 @@ android {
     compileSdkVersion 25
     buildToolsVersion "24.0.3"
     defaultConfig {
-        applicationId "bnk3r.droid.weatherforcast"
-        minSdkVersion 10
+        applicationId "com.bourgault.weather"
+        minSdkVersion 14
         //noinspection OldTargetApi
-        targetSdkVersion 22
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -26,10 +26,10 @@ android {
     }
     productFlavors {
         prod {
-            applicationId "bnk3r.droid.weatherforcast.prod"
+            applicationId "com.bourgault.weather.prod"
         }
         integ {
-            applicationId "bnk3r.droid.weatherforcast.integ"
+            applicationId "com.bourgault.weather.integ"
         }
     }
     dexOptions {
@@ -51,6 +51,7 @@ def ANNOTATION = "10.0-b28"
 def BUTTERKNIFE = "8.4.0"
 def VOLLEY = "1.0.0"
 def GSON = "2.2.4"
+def CALLIGRAPHY = "2.2.0"
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -64,6 +65,7 @@ dependencies {
     //Android SDK
     compile "com.android.support:appcompat-v7:$SUPPORT"
     compile "com.android.support:recyclerview-v7:$SUPPORT"
+    compile "com.android.support:cardview-v7:$SUPPORT"
 
     //Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN"
@@ -82,9 +84,12 @@ dependencies {
 
     //Gson
     compile "com.google.code.gson:gson:$GSON"
+
+    //Calligraphy
+    compile "uk.co.chrisjenx:calligraphy:$CALLIGRAPHY"
 }
 buildscript {
-    ext.KOTLIN = '1.0.4'
+    ext.KOTLIN = '1.0.5'
     repositories {
         mavenCentral()
     }

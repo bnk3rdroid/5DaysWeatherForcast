@@ -15,22 +15,39 @@
     <RelativeLayout
         android:id="@+id/main_screen_progress_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/activity_vertical_margin"
+        android:layout_height="match_parent"
         android:visibility="gone">
 
         <ProgressBar
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin" />
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/main_screen_error_message"
+    <LinearLayout
+        android:id="@+id/main_screen_error_message_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/activity_vertical_margin"
         android:gravity="center"
-        android:visibility="gone" />
+        android:orientation="vertical"
+        android:visibility="gone">
 
+        <TextView
+            android:id="@+id/main_screen_error_message"
+            fontPath="fonts/Roboto-Bold.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_autorenew_white_48dp"
+            android:gravity="center"
+            android:text="@string/reload" />
+            android:text="@string/reload" />
+    </LinearLayout>
 </RelativeLayout>
