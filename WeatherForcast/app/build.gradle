@@ -52,6 +52,10 @@ def BUTTERKNIFE = "8.4.0"
 def VOLLEY = "1.0.0"
 def GSON = "2.2.4"
 def CALLIGRAPHY = "2.2.0"
+def RETROFIT = "2.1.0"
+def GLIDE = "3.7.0"
+def RX = "1.2.1"
+def RX_LEGACY = "1.1.6"
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -87,6 +91,17 @@ dependencies {
 
     //Calligraphy
     compile "uk.co.chrisjenx:calligraphy:$CALLIGRAPHY"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //Retrofit
+    compile "com.squareup.retrofit2:retrofit:$RETROFIT"
+
+    //Glide
+    compile "com.github.bumptech.glide:glide:$GLIDE"
+
+    //Rx
+    compile "io.reactivex:rxandroid:$RX"
+    compile "io.reactivex:rxjava:$RX_LEGACY"
 }
 buildscript {
     ext.KOTLIN = '1.0.5'
